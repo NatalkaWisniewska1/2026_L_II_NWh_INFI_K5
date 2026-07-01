@@ -12,3 +12,10 @@ run:
 .PHONY: test
 test:
 	PYTHONPATH=. py.test --verbose -s
+docker_build:
+	docker build -t hello-world-printer .
+docker_run: docker_build
+	docker run \
+		--name hello-world-printer-dev \
+		-p 5001:5000 \
+		-d hello-world-printer

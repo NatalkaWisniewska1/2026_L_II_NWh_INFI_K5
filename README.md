@@ -84,3 +84,16 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   $ yum install -y docker-ce
   $ systemctl start docker
   ```
+## CircleCI i Docker
+
+Projekt wykorzystuje CircleCI do automatycznego budowania i testowania.
+
+Pipeline wykonuje kolejno:
+- `make deps` - instalacja zależności
+- `make test` - uruchomienie testów
+- `make lint` - sprawdzenie jakości kodu
+- `make docker_build` - budowanie obrazu Docker
+- `make docker_push` - wysyłanie obrazu na Docker Hub
+
+Obraz Docker dostępny jest pod adresem:
+https://hub.docker.com/r/natalkawisniewska1/hello-world-printer-k5-2026
